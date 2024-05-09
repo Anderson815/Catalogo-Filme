@@ -33,7 +33,8 @@ export class MovieService {
     return `This action updates a #${id} movie`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} movie`;
+  async remove(id: number) {
+    await this.findOne(id);
+    await this.movieGateway.removeById(id);
   }
 }

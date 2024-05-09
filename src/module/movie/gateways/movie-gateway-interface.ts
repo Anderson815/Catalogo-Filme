@@ -4,4 +4,5 @@ import { Movie } from "../entities/movie.entity";
 export interface MovieGatewayInterface{
     create(createMovieDto: CreateMovieDto): Promise<Movie>;
     findById(id: number): Promise<Movie>;
+    removeById(id: number): Promise<void>;
 }

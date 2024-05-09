@@ -1,5 +1,7 @@
-import { IsDateString, IsEnum, IsNotEmpty, IsNumber, IsString, Min } from "class-validator";
+import { IsDate, IsDateString, IsEnum, IsNotEmpty, IsNumber, IsString, Min } from "class-validator";
 import { EnumCategory } from "../enums/cateegory.enum";
+import { Transform } from "class-transformer";
+import * as moment from 'moment';
 
 export class CreateMovieDto {
 
@@ -24,7 +26,8 @@ export class CreateMovieDto {
     productionCompany: string;
 
     @IsNotEmpty()
-    @IsDateString()
+    @IsDate({message: `releaseDate must be a valid ISO 8601 date string`})
+    @Transform(({value}) => moment(value).toDate())
     releaseDate: Date;
 
     @IsNotEmpty()

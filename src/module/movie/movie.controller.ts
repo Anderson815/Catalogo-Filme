@@ -2,6 +2,8 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { MovieService } from './movie.service';
 import { CreateMovieDto } from './dto/create-movie.dto';
 import { UpdateMovieDto } from './dto/update-movie.dto';
+import { plainToClass } from 'class-transformer';
+import { Movie } from './entities/movie.entity';
 
 @Controller('movie')
 export class MovieController {

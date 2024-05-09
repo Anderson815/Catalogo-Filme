@@ -1,11 +1,20 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { CreateMovieDto } from './dto/create-movie.dto';
 import { UpdateMovieDto } from './dto/update-movie.dto';
+import { MovieGatewayInterface } from './gateways/movie-gateway-interface';
 
 @Injectable()
 export class MovieService {
-  create(createMovieDto: CreateMovieDto) {
-    return createMovieDto;
+
+  constructor(
+    @Inject('MovieGatewayBD')
+    private movieGateway: MovieGatewayInterface
+  ){}
+
+  async create(createMovieDto: CreateMovieDto) {
+    const newMovie = await this.movieGateway.create(createMovieDto);
+
+    return newMovie;
   }
 
   findAll() {

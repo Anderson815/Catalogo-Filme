@@ -13,4 +13,9 @@ export class MovieGatewayAdapterMemory implements MovieGatewayInterface{
         this.arrayMovies.push(newMovie);
         return newMovie;
     }
+
+    async findById(id: number): Promise<Movie> {
+        const searchMovie = this.arrayMovies.find(movie => movie.id === id);
+        return searchMovie;
+    }
 }

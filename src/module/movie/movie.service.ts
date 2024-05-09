@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateMovieDto } from './dto/create-movie.dto';
 import { UpdateMovieDto } from './dto/update-movie.dto';
 import { MovieGatewayInterface } from './gateways/movie-gateway-interface';
@@ -13,7 +13,6 @@ export class MovieService {
 
   async create(createMovieDto: CreateMovieDto) {
     const newMovie = await this.movieGateway.create(createMovieDto);
-
     return newMovie;
   }
 
@@ -21,8 +20,13 @@ export class MovieService {
     return `This action returns all movie`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} movie`;
+  async findOne(id: number) {
+    const searchMovie = await this.movieGateway.findById(id);
+
+    if(!searchMovie)
+      throw new NotFoundException(`Movie not found`);
+
+    return searchMovie;
   }
 
   update(id: number, updateMovieDto: UpdateMovieDto) {

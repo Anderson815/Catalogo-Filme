@@ -12,7 +12,7 @@ services:
       - db
   db:
     image: postgres
-    enviroment:
+    environment:
       POSTGRES_DB: movie_db
       POSTGRES_USER: root
       POSTGRES_PASSWORD: pass

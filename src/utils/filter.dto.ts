@@ -1,3 +1,4 @@
+import { BadRequestException } from "@nestjs/common";
 import { Transform } from "class-transformer";
 import { IsBoolean, IsNumber, IsOptional, Min } from "class-validator";
 
@@ -18,8 +19,9 @@ export class FilterDto{
     @IsOptional()
     @IsBoolean()
     @Transform(({ value }) => {
-      if (value === 'true') return true;
-      else return false;
+      if (value === 'false') return false;
+      else if(value === 'true') return true;
+      else throw new BadRequestException(`pagination must be boolean`)
     })
-    pagination: boolean = false;
+    pagination: boolean = true;
 }

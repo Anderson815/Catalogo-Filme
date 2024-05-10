@@ -13,14 +13,11 @@ export class Pagination<Resource> {
     totalItems: number,
     resource: Resource[],
   ) {
-
-    const paginationNotAble = filter.pagination === false;
-
-    this.page = paginationNotAble ? 1 : filter.page;
-    this.limit = paginationNotAble ? totalItems : filter.limit;
+    this.page = filter.pagination ? filter.page : 1;
+    this.limit = filter.pagination ? filter.limit : totalItems;
     this.totalItems = totalItems;
     this.resource = resource;
-    this.totalPages = paginationNotAble ? 1 : Math.ceil(totalItems / filter.limit);
+    this.totalPages = filter.pagination ? Math.ceil(totalItems / filter.limit) : 1;
     this.amountItemsCurrentPage = resource.length;
   }
 }

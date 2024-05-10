@@ -1,4 +1,4 @@
-import { IsDate, IsDateString, IsEnum, IsNotEmpty, IsNumber, IsString, Min } from "class-validator";
+import { IsDate, IsEnum, IsNotEmpty, IsNumber, IsString, Min } from "class-validator";
 import { EnumCategory } from "../enums/cateegory.enum";
 import { Transform } from "class-transformer";
 import * as moment from 'moment';

@@ -1,4 +1,4 @@
-import { BadRequestException, Inject, Injectable } from '@nestjs/common';
+import { BadRequestException, ConflictException, Inject, Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UserGatewayInterface } from './gateways/user-gateway-interface';
 import { hashSync, compareSync } from "bcrypt";
@@ -21,6 +21,11 @@ export class UserService {
         
         if(dateMomentNow.diff(dateMomentBirth, 'year') <= yearOldMin)
             throw new BadRequestException(`You must be more or equal than 10 years old`);
+
+        const userByEmail = await this.userGateway.getByEmail(createUserDto.email);
+        
+        if(userByEmail)
+            throw new ConflictException(`Already exists user with email`)
 
         createUserDto.password = hashSync(createUserDto.password, Number(process.env.BCRYPT_SALT));
         const newUser = await this.userGateway.create(createUserDto);

@@ -22,4 +22,9 @@ export class UserGatewayAdapterMemory implements UserGatewayInterface{
 
         return user;
     }
+
+    async getByEmail(email: string): Promise<User> {
+        const user = this.arrayUser.find(user => user.email === email);
+        return user;
+    }
 }

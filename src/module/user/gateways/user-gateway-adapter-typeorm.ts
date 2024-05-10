@@ -19,4 +19,12 @@ export class UserGatewayAdapterTypeORM implements UserGatewayInterface{
         const user = plainToClass(User, userSave);
         return user;
     }
+
+    async getByEmail(email: string): Promise<User> {
+        const user = await this.repository.findOneBy({
+            email
+        })
+
+        return user;
+    }
 } 

@@ -10,11 +10,11 @@ import { Movie } from './entities/movie.entity';
 export class MovieService {
 
   constructor(
-    @Inject('MovieGatewayBD')
+    @Inject('MovieGatewayBDTypeOrm')
     private movieGateway: MovieGatewayInterface
   ){}
 
-  async create(createMovieDto: CreateMovieDto) {
+  async create(createMovieDto: CreateMovieDto) {    
     const newMovie = await this.movieGateway.create(createMovieDto);
     return newMovie;
   }

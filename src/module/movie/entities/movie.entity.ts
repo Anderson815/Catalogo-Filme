@@ -1,6 +1,5 @@
-import { Expose, Transform } from "class-transformer";
+import { Expose } from "class-transformer";
 import { EnumCategory } from "../enums/cateegory.enum";
-import * as moment from 'moment';
 
 export class Movie {
     @Expose()

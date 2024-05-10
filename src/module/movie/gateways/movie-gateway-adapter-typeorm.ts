@@ -4,7 +4,7 @@ import { FilterMovieDto } from "../dto/filter-movie.dto";
 import { UpdateMovieDto } from "../dto/update-movie.dto";
 import { Movie } from "../entities/movie.entity";
 import { MovieGatewayInterface } from "./movie-gateway-interface";
-import { Repository } from "typeorm";
+import { Like, Repository } from "typeorm";
 import { MovieEntityTypeORM } from "../entities/movie-typeorm.entity";
 import { plainToClass } from "class-transformer";
 import { InjectRepository } from "@nestjs/typeorm";
@@ -18,9 +18,7 @@ export class MovieGatewayAdapterTypeORM implements MovieGatewayInterface{
         private readonly repository: Repository<MovieEntityTypeORM>
     ){}
 
-    async create(createMovieDto: CreateMovieDto): Promise<Movie> {
-        console.log(`deu ruim`);
-        
+    async create(createMovieDto: CreateMovieDto): Promise<Movie> {        
         const newMovie = await this.repository.save(createMovieDto);
         const movieToResponse = plainToClass(Movie, newMovie);
 
@@ -40,7 +38,15 @@ export class MovieGatewayAdapterTypeORM implements MovieGatewayInterface{
     }
     
     async findAll(filter: FilterMovieDto): Promise<[Movie[], number]> {
+
+        if(!filter.title)
+            filter.title = "";
+
         const [movieBd, count] = await this.repository.findAndCount({
+            where: {
+                category: filter.category,
+                title: Like(`${filter.title}%`)
+            },
             take: filter.limit,
             skip: (filter.page - 1) * filter.limit
         })

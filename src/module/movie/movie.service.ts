@@ -2,6 +2,9 @@ import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateMovieDto } from './dto/create-movie.dto';
 import { UpdateMovieDto } from './dto/update-movie.dto';
 import { MovieGatewayInterface } from './gateways/movie-gateway-interface';
+import { FilterMovieDto } from './dto/filter-movie.dto';
+import { Pagination } from 'src/utils/pagination.dto';
+import { Movie } from './entities/movie.entity';
 
 @Injectable()
 export class MovieService {
@@ -16,8 +19,10 @@ export class MovieService {
     return newMovie;
   }
 
-  findAll() {
-    return `This action returns all movie`;
+  async findAll(filter: FilterMovieDto) {
+    const elements = await this.movieGateway.findAll(filter);
+    const pagination = new Pagination<Movie>(filter, elements[1], elements[0]);
+    return pagination;
   }
 
   async findOne(id: number) {

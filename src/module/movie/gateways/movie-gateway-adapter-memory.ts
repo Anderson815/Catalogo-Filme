@@ -3,6 +3,7 @@ import { CreateMovieDto } from "../dto/create-movie.dto";
 import { Movie } from "../entities/movie.entity";
 import { MovieGatewayInterface } from "./movie-gateway-interface";
 import { FilterMovieDto } from "../dto/filter-movie.dto";
+import { UpdateMovieDto } from "../dto/update-movie.dto";
 
 export class MovieGatewayAdapterMemory implements MovieGatewayInterface{
 
@@ -45,5 +46,24 @@ export class MovieGatewayAdapterMemory implements MovieGatewayInterface{
 
     async removeById(id: number): Promise<void> {
         this.arrayMovies.splice(--id, 1);
+    }
+    
+    async updateById(id: number, updateMovieDto: UpdateMovieDto): Promise<Movie> {
+
+        const indexToUpdate = this.arrayMovies.findIndex(movie => movie.id === id);
+        let movieToUpdateBd = this.arrayMovies[indexToUpdate];
+
+        const updateMovieFromRequest = plainToClass(Movie, updateMovieDto);
+     
+        const propertys = Object.keys(updateMovieFromRequest);
+        propertys.forEach(property => {
+            if(typeof updateMovieFromRequest[property] !== 'undefined'){
+                movieToUpdateBd[property] = updateMovieFromRequest[property]
+            }
+        })
+
+        this.arrayMovies[indexToUpdate] = movieToUpdateBd;
+
+        return movieToUpdateBd;
     }
 }

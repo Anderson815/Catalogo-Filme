@@ -34,8 +34,10 @@ export class MovieService {
     return searchMovie;
   }
 
-  update(id: number, updateMovieDto: UpdateMovieDto) {
-    return `This action updates a #${id} movie`;
+  async update(id: number, updateMovieDto: UpdateMovieDto) {
+    await this.findOne(id);
+    const updateMovie = await this.movieGateway.updateById(id, updateMovieDto);
+    return updateMovie;
   }
 
   async remove(id: number) {

@@ -17,9 +17,9 @@ export class UserGatewayAdapterMemory implements UserGatewayInterface{
         const newUser = plainToClass(User, createUserDto, {excludeExtraneousValues: true});        
         newUser.id = uuidv4();
         this.arrayUser.push(newUser);
-                
-        const userToResponse = plainToClass(UserResponse, newUser);
+                        
+        const user = plainToClass(User, newUser);
 
-        return userToResponse;
+        return user;
     }
 }

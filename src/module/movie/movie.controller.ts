@@ -4,7 +4,7 @@ import { CreateMovieDto } from './dto/create-movie.dto';
 import { UpdateMovieDto } from './dto/update-movie.dto';
 import { FilterMovieDto } from './dto/filter-movie.dto';
 import { AuthGuard } from 'src/guards/authguard/authguard.guard';
-import { ApiOperation, ApiResponse, ApiTags, ApiParam, ApiBody } from '@nestjs/swagger';
+import { ApiOperation, ApiResponse, ApiTags, ApiParam, ApiBody, ApiBearerAuth } from '@nestjs/swagger';
 import { BadRequestExceptionDto } from 'src/utils/swagger/bad-request.dto';
 import { Movie } from './entities/movie.entity';
 import { paginationSwagger } from 'src/utils/swagger/pagination-swagger';
@@ -15,6 +15,7 @@ import { paginationSwagger } from 'src/utils/swagger/pagination-swagger';
 export class MovieController {
   constructor(private readonly movieService: MovieService) {}
 
+  @ApiBearerAuth()
   @ApiOperation({
     summary: 'Cadastro de filme',
   })
@@ -41,6 +42,7 @@ export class MovieController {
     return this.movieService.create(createMovieDto);
   }
 
+  @ApiBearerAuth()
   @ApiOperation({
     summary: 'Obter lista de filmes paginado, podendo utilizar filtros de busca (título do filme e/ou categoria)',
   })
@@ -67,6 +69,7 @@ export class MovieController {
     return this.movieService.findAll(filter);
   }
 
+  @ApiBearerAuth()
   @ApiOperation({
     summary: 'Obter um filmes com base no id informado',
   })
@@ -105,6 +108,7 @@ export class MovieController {
     return this.movieService.findOne(id);
   }
 
+  @ApiBearerAuth()
   @ApiOperation({
     summary: 'Atualizar o registro de um filmes com base no id informado',
   })
@@ -144,6 +148,7 @@ export class MovieController {
     return this.movieService.update(id, updateMovieDto);
   }
 
+  @ApiBearerAuth()
   @ApiOperation({
     summary: 'Excluir um filmes com base no id informado',
   })

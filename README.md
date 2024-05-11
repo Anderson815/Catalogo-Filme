@@ -1,73 +1,101 @@
+<h1 align="center">Catálogo Filme</h1>
+<p align="center">Concluído :rocket: </p>
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a href="#Sobre">Sobre</a> •
+  <a href="#Funcionalidades">Funcionalidades</a> •
+  <a href="#Executar">Como Executar</a> •
+  <a href="#Aplicacao">Aplicação</a> •
+  <a href="#Tecnologias">Tecnologias</a> •
+  <a href="#Autor">Autor</a> •
+  <a href="#Licenca">Licença</a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+<h2 id="Sobre">:computer: Sobre o projeto</h2>
+<p>
+  🎬 O Catálogo Filme é um projeto simples que tem como o objetivo utilizar uma vasta quantidade de conhecimentos diferentes do autor em um CRUD simples utilizando o NestJS como framework.
 </p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+<p>
+  Sequência para rodar e testar a aplicação:
+</p>
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+<ol>
+  <li>Criar um Usuário</li>
+  <li>Logar com o Usuário cadatrado para obter o token JWT de acesso e o refresh Token</li>
+  <li>Utilizar o token de acesso para utilizar os demais endpoints de filme</li>
+</ol>
 
-## Installation
+<h2 id="Funcionalidades">⚙️ Funcionalidades</h2>
+
+  <h3>Usuário</h3>
+  
+  - [x] Cadastrar usuário
+  - [x] Logar na aplicação
+  - [x] Refresh das credenciais
+
+<h3>Filme</h3>
+        
+  - [x] Cadastrar filme
+  - [x] Consultar filme pelo ID
+  - [x] Consultar lista de filmes podendo utilizar filtros (nome e/ou categoria)
+  - [x] Alterar filme
+  - [x] Deletar filme
+
+
+<h2 id="Executar">🚀 Como executar o projeto</h2>
+
+<p>Clonar o projeto</p>
 
 ```bash
-$ yarn install
+git clone https://github.com/Anderson815/Catalogo-Filme.git
 ```
 
-## Running the app
+<p>Criar um arquivo .env na raiz da aplicação e nele deve conter todas as variáveis de ambiente devidamente preenchidas, como no exemplo a seguir:<p>
 
 ```bash
-# development
-$ yarn run start
+#APP
+PORT=3000
 
-# watch mode
-$ yarn run start:dev
+#BCRYPT
+BCRYPT_SALT=10
 
-# production mode
-$ yarn run start:prod
+#JWT
+JWT_SECRET_KEY=4b6e18c7-9d9b-4f15-829b-2b128a01d6e4
+JWT_SECRET_KEY_EXPIRES_IN = 600
+JWT_SECRET_REFRESH_KEY=d8b6f7a3-e724-4dc4-a9e0-5c3b2f9e0dc1
+JWT_SECRET_KEY_REFRESH_EXPIRES_IN = 1200 #Deve ser maior que o JWT_SECRET_KEY_EXPIRES_IN
 ```
 
-## Test
-
+<p>Executar o docker compose<p>
+  
 ```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+docker compose up
 ```
 
-## Support
+<h2 id="Aplicacao">▶️ Aplicação</h2>
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Aplicação está hospedado no link: https://catalogo-filme.onrender.com <br>
+Swagger da aplicação no servidor de hospedagem: https://catalogo-filme.onrender.com/api
 
-## Stay in touch
+<h2 id="Tecnologias">🛠 Ferramentas e técnicas de desenvolvimento</h2>
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+  - [x] TypeScript(TS)
+  - [x] NestJS
+  - [x] TypeORM
+  - [x] PostgreSQL
+  - [x] Docker
+  - [x] JWT
+  - [x] Arquitetura Hexagonal
+  - [x] Swagger
+ 
+<h2 id="Autor">🦸 Autor</h2>
 
-## License
+<img src="Midia/Perfil.jpg" alt="Foto do Anderson" height="150px" width="150px">
+<p>
+Anderson Correia é um entusiasta e apaixonados por programação, focado em resolver problemas através de códigos.
+</p>
+<p>Esse projeto foi feito com muito ❤️ e carinho pelo Anderson 👋🏽 <a href="https://www.linkedin.com/in/anderson-correia/">Entre em contato!</a></p>
 
-Nest is [MIT licensed](LICENSE).
+<h2 id="Licenca">📝 Licença</h2>
+
+<p>Este projeto esta sob a licença <a href="https://github.com/Anderson815/Catalogo-Filme?tab=MIT-1-ov-file">MIT</a>.</p>

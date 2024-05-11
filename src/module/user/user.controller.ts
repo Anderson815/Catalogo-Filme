@@ -8,7 +8,7 @@ import { BadRequestExceptionDto } from 'src/utils/swagger/bad-request.dto';
 import { UserResponse } from './dto/user-response.dto';
 import { JwtTokenDto } from './dto/jwtToken.dto';
 
-@ApiTags('Users - Usuário da aplicação')
+@ApiTags('Usuário da aplicação')
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}

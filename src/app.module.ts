@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { MovieModule } from './module/movie/movie.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './module/user/user.module';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [

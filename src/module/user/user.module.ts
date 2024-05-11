@@ -5,10 +5,12 @@ import { UserGatewayAdapterMemory } from './gateways/user-gateway-adapter-memory
 import { UserGatewayAdapterTypeORM } from './gateways/user-gateway-adapter-typeorm';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntityTypeORM } from './entities/user-typeorm.entity';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([UserEntityTypeORM])
+    TypeOrmModule.forFeature([UserEntityTypeORM]),
+    JwtModule
   ],
   controllers: [UserController],
   providers: [
@@ -24,5 +26,8 @@ import { UserEntityTypeORM } from './entities/user-typeorm.entity';
       useExisting: UserGatewayAdapterTypeORM
     }
   ],
+  exports: [
+    UserService
+  ]
 })
 export class UserModule {}

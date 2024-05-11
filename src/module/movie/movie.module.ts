@@ -5,10 +5,12 @@ import { MovieGatewayAdapterMemory } from './gateways/movie-gateway-adapter-memo
 import { MovieEntityTypeORM } from './entities/movie-typeorm.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MovieGatewayAdapterTypeORM } from './gateways/movie-gateway-adapter-typeorm';
+import { UserModule } from '../user/user.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([MovieEntityTypeORM])
+    TypeOrmModule.forFeature([MovieEntityTypeORM]),
+    UserModule
   ],
   controllers: [MovieController],
   providers: [

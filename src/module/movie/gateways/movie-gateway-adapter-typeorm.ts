@@ -42,13 +42,17 @@ export class MovieGatewayAdapterTypeORM implements MovieGatewayInterface{
         if(!filter.title)
             filter.title = "";
 
+        const paginationToSelect = this.generatePaginationToSelect(filter);
+   
         const [movieBd, count] = await this.repository.findAndCount({
             where: {
                 category: filter.category,
                 title: Like(`${filter.title}%`)
             },
-            take: filter.limit,
-            skip: (filter.page - 1) * filter.limit
+            order: {
+                    releaseDate: 'DESC'
+            },
+            ...paginationToSelect
         })
 
         const arrayMovieToResponse = movieBd.map(movie => plainToClass(Movie, movie))
@@ -66,4 +70,19 @@ export class MovieGatewayAdapterTypeORM implements MovieGatewayInterface{
         
         return movieToResponse;
     }
+
+    private generatePaginationToSelect(filter: FilterMovieDto){
+        
+        let pagination = {};
+
+        if(filter.pagination){
+            Object.assign(pagination, {
+                take: filter.limit, 
+                skip: (filter.page - 1) * filter.limit
+            });
+        }
+
+        return pagination;
+    }
+
 }

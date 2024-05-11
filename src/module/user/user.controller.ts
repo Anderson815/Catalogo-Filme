@@ -62,6 +62,20 @@ export class UserController {
     return this.userService.auth(userLoginDto);
   }
 
+  @ApiOperation({
+    summary:
+      'Gera um novo token e refreh token a partit do refresh token gerado anteriormente. Deve ser utilizado quando o token de acesso estiver expirado',
+  })
+  @ApiResponse({
+    status: 201,
+    description: 'Geração de credenciais com sucesso',
+    type: JwtTokenDto,
+  })
+  @ApiResponse({
+    status: 403,
+    description: 'Para gerar as credenciais é necessário informar no authorize um refresh token válido',
+    type: BadRequestExceptionDto,
+  })
   @Post('/refreshtoken')
   @UseGuards(RefreshGuard)
   refreshToken(){

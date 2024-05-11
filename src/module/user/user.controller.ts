@@ -3,7 +3,7 @@ import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UserLoginDto } from './dto/user-login.dto';
 import { RefreshGuard } from 'src/guards/refresh/refresh.guard';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { BadRequestExceptionDto } from 'src/utils/swagger/bad-request.dto';
 import { UserResponse } from './dto/user-response.dto';
 import { JwtTokenDto } from './dto/jwtToken.dto';
@@ -62,6 +62,7 @@ export class UserController {
     return this.userService.auth(userLoginDto);
   }
 
+  @ApiBearerAuth()
   @ApiOperation({
     summary:
       'Gera um novo token e refreh token a partit do refresh token gerado anteriormente. Deve ser utilizado quando o token de acesso estiver expirado',

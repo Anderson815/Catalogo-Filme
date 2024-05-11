@@ -4,7 +4,7 @@ import { CreateMovieDto } from './dto/create-movie.dto';
 import { UpdateMovieDto } from './dto/update-movie.dto';
 import { FilterMovieDto } from './dto/filter-movie.dto';
 import { AuthGuard } from 'src/guards/authguard/authguard.guard';
-import { ApiOperation, ApiResponse, ApiTags, ApiParam } from '@nestjs/swagger';
+import { ApiOperation, ApiResponse, ApiTags, ApiParam, ApiBody } from '@nestjs/swagger';
 import { BadRequestExceptionDto } from 'src/utils/swagger/bad-request.dto';
 import { Movie } from './entities/movie.entity';
 import { paginationSwagger } from 'src/utils/swagger/pagination-swagger';
@@ -105,6 +105,39 @@ export class MovieController {
     return this.movieService.findOne(id);
   }
 
+  @ApiOperation({
+    summary: 'Atualizar o registro de um filmes com base no id informado',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'O filme com o id informado foi atualizado com sucesso',
+    type: Movie
+  })
+  @ApiResponse({
+    status: 400,
+    description:
+      'Body incorreto, alguma propriedade foi passada de forma incorreta, o campo (ou os campos) que deve ser ajustado será informado no body de retorno',
+    type: BadRequestExceptionDto,
+  })
+  @ApiResponse({
+    status: 403,
+    description:
+      'Token inválido, expirado ou não informado',
+    type: BadRequestExceptionDto,
+  })
+  @ApiResponse({
+    status: 404,
+    description:
+      'Filme com o id informado não foi encontrado',
+    type: BadRequestExceptionDto,
+  })
+  @ApiParam({
+    name: 'id',
+    description: 'id do filme',
+    required: true,
+    example: 1,
+  })
+  @ApiBody({type: UpdateMovieDto})
   @Put(':id')
   @UseGuards(AuthGuard)
   update(@Param('id', new ParseIntPipe()) id: number, @Body() updateMovieDto: UpdateMovieDto) {

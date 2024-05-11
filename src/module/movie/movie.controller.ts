@@ -144,6 +144,37 @@ export class MovieController {
     return this.movieService.update(id, updateMovieDto);
   }
 
+  @ApiOperation({
+    summary: 'Excluir um filmes com base no id informado',
+  })
+  @ApiResponse({
+    status: 204,
+    description: 'O filme com o id informado foi excluido com sucesso',
+  })
+  @ApiResponse({
+    status: 400,
+    description:
+      'Query incorreta, alguma propriedade foi passada de forma incorreta, o campo (ou os campos) que deve ser ajustado será informado no body de retorno',
+    type: BadRequestExceptionDto,
+  })
+  @ApiResponse({
+    status: 403,
+    description:
+      'Token inválido, expirado ou não informado',
+    type: BadRequestExceptionDto,
+  })
+  @ApiResponse({
+    status: 404,
+    description:
+      'Filme com o id informado não foi encontrado',
+    type: BadRequestExceptionDto,
+  })
+  @ApiParam({
+    name: 'id',
+    description: 'id do filme',
+    required: true,
+    example: 1,
+  })
   @Delete(':id')
   @UseGuards(AuthGuard)
   @HttpCode(HttpStatus.NO_CONTENT)

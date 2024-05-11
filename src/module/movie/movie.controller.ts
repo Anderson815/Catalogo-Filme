@@ -7,6 +7,7 @@ import { AuthGuard } from 'src/guards/authguard/authguard.guard';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { BadRequestExceptionDto } from 'src/utils/swagger/bad-request.dto';
 import { Movie } from './entities/movie.entity';
+import { paginationSwagger } from 'src/utils/swagger/pagination-swagger';
 
 
 @ApiTags('Filmes da aplicação')
@@ -28,12 +29,38 @@ export class MovieController {
       'Body incorreto, alguma propriedade foi passada de forma incorreta, o campo (ou os campos) que deve ser ajustado será informado no body de retorno',
     type: BadRequestExceptionDto,
   })
+  @ApiResponse({
+    status: 403,
+    description:
+      'Token inválido, expirado ou não informado',
+    type: BadRequestExceptionDto,
+  })
   @Post()
   @UseGuards(AuthGuard)
   create(@Body() createMovieDto: CreateMovieDto) {
     return this.movieService.create(createMovieDto);
   }
 
+  @ApiOperation({
+    summary: 'Obter lista de filmes paginado, podendo utilizar filtros de busca (título do filme e/ou categoria)',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Busca da lista de filmes foi realizado com sucesso',
+    type: paginationSwagger(Movie)
+  })
+  @ApiResponse({
+    status: 400,
+    description:
+      'Query incorreta, alguma propriedade foi passada de forma incorreta, o campo (ou os campos) que deve ser ajustado será informado no body de retorno',
+    type: BadRequestExceptionDto,
+  })
+  @ApiResponse({
+    status: 403,
+    description:
+      'Token inválido, expirado ou não informado',
+    type: BadRequestExceptionDto,
+  })
   @Get()
   @UseGuards(AuthGuard)
   findAll(@Query() filter: FilterMovieDto) {

@@ -55,6 +55,11 @@ export class UserService {
         return jwtToken;
     }
 
+    async genereteRefreshToken(){
+        const jwtToken = await this.generateJwtTokenDto();
+        return jwtToken;
+    }
+
     async checkCredencialsToJwt(token: string, refresh = false){
         try{            
             if(!refresh){

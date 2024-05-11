@@ -1,0 +1,2246 @@
+{
+	"info": {
+		"_postman_id": "39aa16be-109e-4454-a5cc-bc5d4a08005b",
+		"name": "Catalogo Filme",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27174044"
+	},
+	"item": [
+		{
+			"name": "Movie",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Title Movie 02\",\r\n    \"writer\": \"Writer Movie\",\r\n    \"plot\": \"Plot Movie\",\r\n    \"category\": \"Science Fiction\",\r\n    \"productionCompany\": \"Product Company Movie\",\r\n    \"releaseDate\": \"2022-10-10\",\r\n    \"runningTime\": 61,\r\n    \"sdsadas\": \"adasd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/movie",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movie"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 - Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Title Movie\",\r\n    \"writer\": \"Writer Movie\",\r\n    \"plot\": \"Plot Movie\",\r\n    \"category\": \"Science Fiction\",\r\n    \"productionCompany\": \"Product Company Movie\",\r\n    \"releaseDate\": \"2022-10-10\",\r\n    \"runningTime\": 61,\r\n    \"sdsadas\": \"adasd\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/movie",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "205"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cd-xvxdUvvKckirmM7a/gGoAtJig+o\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 May 2024 20:03:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"title\": \"Title Movie\",\n    \"writer\": \"Writer Movie\",\n    \"plot\": \"Plot Movie\",\n    \"category\": \"Science Fiction\",\n    \"productionCompany\": \"Product Company Movie\",\n    \"releaseDate\": \"2022-10-10T03:00:00.000Z\",\n    \"runningTime\": 61\n}"
+						},
+						{
+							"name": "400 - Body incorrect",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/movie",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "634"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"27a-N10NX2Q9Dajms7+6B085pUMrE+4\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 May 2024 18:56:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"title must be a string\",\n        \"title should not be empty\",\n        \"writer must be a string\",\n        \"writer should not be empty\",\n        \"plot must be a string\",\n        \"plot should not be empty\",\n        \"category must be one of the following values: Action, Adventure, Comedy, Drama, Horror, Romance, Science Fiction\",\n        \"category should not be empty\",\n        \"productionCompany must be a string\",\n        \"productionCompany should not be empty\",\n        \"releaseDate must be a valid ISO 8601 date string\",\n        \"releaseDate should not be empty\",\n        \"duractionMinutes must be a number conforming to the specified constraints\",\n        \"duractionMinutes should not be empty\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "403 - Forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Spider-Man no way home\",\r\n    \"writer\": \"Chris McKenna\",\r\n    \"plot\": \"A identidade do homem-aranha é revelada e agora ele luta para restaurar o seu anonimato, mas terá que cuidar de grandes responsabilidades\",\r\n    \"category\": \"Action\",\r\n    \"productionCompany\": \"Marvel Studios\",\r\n    \"releaseDate\": \"2021-12-16\",\r\n    \"runningTime\": 148\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/movie",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-MZJWZc+Y+RUbHpnhz2B2Vipii24\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 May 2024 14:28:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden resource\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						}
+					]
+				},
+				{
+					"name": "Get movie by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/movie/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movie",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/movie/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "208"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d0-RU/4Vb6yYjR9Xe+vthh26tNhgCQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 May 2024 22:02:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"title\": \"Title Movie 02\",\n    \"writer\": \"Writer Movie\",\n    \"plot\": \"Plot Movie\",\n    \"category\": \"Science Fiction\",\n    \"productionCompany\": \"Product Company Movie\",\n    \"releaseDate\": \"2022-10-10T03:00:00.000Z\",\n    \"runningTime\": 61\n}"
+						},
+						{
+							"name": "400 - Id not a number",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/movie/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "asdasd"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "99"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"63-fbYqGzam3W3FhpKYGVugOXQk+/M\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 02:42:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Validation failed (numeric string is expected)\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "403 - Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/movie/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-MZJWZc+Y+RUbHpnhz2B2Vipii24\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 May 2024 14:55:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden resource\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						},
+						{
+							"name": "404 - Movie not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/movie/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42-vdTx4GW38DQAaRgwt78xmk+vVAE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 May 2024 22:02:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Movie not found\",\n    \"error\": \"Not Found\",\n    \"statusCode\": 404\n}"
+						}
+					]
+				},
+				{
+					"name": "Get by Filter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/movie?page=1&limit=2&category=Actionss",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movie"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "pagination",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "Actionss",
+									"description": "Action\nScience Fiction"
+								},
+								{
+									"key": "title",
+									"value": "Title Movie 0005",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - Success with all filters",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/movie?page=1&limit=2&pagination=true&category=Action&title=Title Movie 0005",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "2"
+										},
+										{
+											"key": "pagination",
+											"value": "true"
+										},
+										{
+											"key": "category",
+											"value": "Action",
+											"description": "Action\nScience Fiction"
+										},
+										{
+											"key": "title",
+											"value": "Title Movie 0005"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "324"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"144-esb1t+TDFhv3nOjkePmURLnMSxQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 19:11:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"page\": 1,\n    \"limit\": 2,\n    \"totalItems\": 1,\n    \"resource\": [\n        {\n            \"id\": 5,\n            \"title\": \"Title Movie 0005 - Other category\",\n            \"writer\": \"Writer Movie 0005\",\n            \"plot\": \"Plot Movie - Action\",\n            \"category\": \"Action\",\n            \"productionCompany\": \"Product Company Movie\",\n            \"releaseDate\": \"2022-10-10T00:00:00.000Z\",\n            \"runningTime\": 120\n        }\n    ],\n    \"totalPages\": 1,\n    \"amountItemsCurrentPage\": 1\n}"
+						},
+						{
+							"name": "200 - Success with pagination",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/movie?page=1&limit=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "2"
+										},
+										{
+											"key": "pagination",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "Action",
+											"description": "Action\nScience Fiction",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "Title Movie 0005",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "530"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"212-dUFiU9shWivhMFP3JUhYCUBWZ7E\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 19:11:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"page\": 1,\n    \"limit\": 2,\n    \"totalItems\": 6,\n    \"resource\": [\n        {\n            \"id\": 3,\n            \"title\": \"Title Movie 3\",\n            \"writer\": \"Writer Movie 3\",\n            \"plot\": \"Plot Movie\",\n            \"category\": \"Science Fiction\",\n            \"productionCompany\": \"Product Company Movie\",\n            \"releaseDate\": \"2022-10-10T00:00:00.000Z\",\n            \"runningTime\": 61\n        },\n        {\n            \"id\": 1,\n            \"title\": \"Title Movie Number Update\",\n            \"writer\": \"Writer Movie UPDATE 1\",\n            \"plot\": \"Plot Movie\",\n            \"category\": \"Science Fiction\",\n            \"productionCompany\": \"Product Company Movie\",\n            \"releaseDate\": \"2022-10-02T00:00:00.000Z\",\n            \"runningTime\": 145\n        }\n    ],\n    \"totalPages\": 3,\n    \"amountItemsCurrentPage\": 2\n}"
+						},
+						{
+							"name": "400 - Page less than 1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/movie?page=-1&limit=3&pagination=true",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "-1"
+										},
+										{
+											"key": "limit",
+											"value": "3"
+										},
+										{
+											"key": "pagination",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"53-JT2SbyMs7ceflDuyoYVzs06mPlw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 00:36:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"page must not be less than 1\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "400 - Limit less than 1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/movie?page=1&limit=0&pagination=true",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "0"
+										},
+										{
+											"key": "pagination",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"54-Kdng7FLE+O91V1FVPOIb5dD7DCk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 00:37:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"limit must not be less than 1\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "400 - Incorrect category",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/movie?page=1&limit=2&category=Actionss",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "2"
+										},
+										{
+											"key": "pagination",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "Actionss",
+											"description": "Action\nScience Fiction"
+										},
+										{
+											"key": "title",
+											"value": "Title Movie 0005",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "167"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a7-0st4VQFqXIKO+AcGQGt9zXHdg/8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 19:12:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"category must be one of the following values: Action, Adventure, Comedy, Drama, Horror, Romance, Science Fiction\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "403 - Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/movie?page=2&limit=5",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "2"
+										},
+										{
+											"key": "limit",
+											"value": "5"
+										},
+										{
+											"key": "pagination",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "Action",
+											"description": "Action\nScience Fiction",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "Title Movie 0005",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-MZJWZc+Y+RUbHpnhz2B2Vipii24\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 May 2024 15:17:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden resource\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/movie/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movie",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "204 - Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/movie/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 May 2024 22:04:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "400 - Id not a number",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/movie/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2asdasd"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "99"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"63-fbYqGzam3W3FhpKYGVugOXQk+/M\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 02:41:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Validation failed (numeric string is expected)\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "403 - Forbidden",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/movie/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "9"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-MZJWZc+Y+RUbHpnhz2B2Vipii24\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 May 2024 15:23:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden resource\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						},
+						{
+							"name": "404 - Movie not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/movie/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42-vdTx4GW38DQAaRgwt78xmk+vVAE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 May 2024 22:04:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Movie not found\",\n    \"error\": \"Not Found\",\n    \"statusCode\": 404\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Spider-Man no way home\",\r\n    \"writer\": \"Writer Movie UPDATE 4\"\r\n    // \"runningTime\": 187,\r\n    // \"releaseDate\": \"2023-02-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/movie/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"movie",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Title Movie Number Update\",\r\n    \"runningTime\": 120,\r\n    \"releaseDate\": \"2022-10-02\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/movie/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "220"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"dc-fKM0D7CSaXNz1dMor+NXsAyhpDQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 03:14:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"title\": \"Title Movie Number Update\",\n    \"writer\": \"Writer Movie\",\n    \"plot\": \"Plot Movie\",\n    \"category\": \"Science Fiction\",\n    \"productionCompany\": \"Product Company Movie\",\n    \"releaseDate\": \"2022-10-02T03:00:00.000Z\",\n    \"runningTime\": 120\n}"
+						},
+						{
+							"name": "400 - Id not a number",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Title Movie Number Update\",\r\n    \"writer\": \"Writer Movie Update\",\r\n    \"plot\": \"Plot Movie Update\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/movie/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "asdsad"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "99"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"63-fbYqGzam3W3FhpKYGVugOXQk+/M\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 03:00:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Validation failed (numeric string is expected)\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "400 - Body incorrect",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Title Movie Number Update\",\r\n    \"runningTime\": 59,\r\n    \"releaseDate\": \"2022-10-02\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/movie/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "91"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5b-HcxX+/3F/n1Yxz8z6FFVE79zbck\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 03:15:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"runningTime must not be less than 60\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "403 - Forbidden",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Spider-Man no way home\",\r\n    \"writer\": \"Writer Movie UPDATE 4\"\r\n    // \"runningTime\": 187,\r\n    // \"releaseDate\": \"2023-02-28\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/movie/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-MZJWZc+Y+RUbHpnhz2B2Vipii24\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 May 2024 15:22:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden resource\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						},
+						{
+							"name": "404 - Movie not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Title Movie Number Update\",\r\n    \"runningTime\": 145,\r\n    \"releaseDate\": \"2022-10-02\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/movie/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"movie",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42-vdTx4GW38DQAaRgwt78xmk+vVAE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 03:16:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Movie not found\",\n    \"error\": \"Not Found\",\n    \"statusCode\": 404\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 - Sucess",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Peter\",\r\n    \"email\": \"peter123@email.com.br\",\r\n    \"password\": \"12345678\",\r\n    \"gender\": \"M\",\r\n    \"dateBirth\": \"2012-12-05\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "112"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"70-MTu/t/Qo1sAFI/y6Fy/0CWvl2TY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 22:35:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"9dca6e92-52a8-4569-bd73-8d4c48fe14bf\",\n    \"name\": \"Peter\",\n    \"gender\": \"M\",\n    \"dateBirth\": \"2012-12-05T00:00:00.000Z\"\n}"
+						},
+						{
+							"name": "400 - Body incorrect",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "429"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ad-gOysN/SPDPHn/6cawZAxOY/1dT8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 19:56:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"name must not be less than 3\",\n        \"name must be a string\",\n        \"name should not be empty\",\n        \"email must be an email\",\n        \"email should not be empty\",\n        \"password must not be less than 8\",\n        \"password must be a string\",\n        \"password should not be empty\",\n        \"gender must be one of the following values: M, F\",\n        \"gender should not be empty\",\n        \"dateBirth must be a Date instance\",\n        \"dateBirth should not be empty\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "400 - Less than 10 years old",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Peter\",\r\n    \"email\": \"peter@email.com.br\",\r\n    \"password\": \"12345678\",\r\n    \"gender\": \"M\",\r\n    \"dateBirth\": \"2024-12-05\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"60-gEnNdI7ha+9z8EuOZcuydREopP4\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 22:23:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"You must be more or equal than 10 years old\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "409 - Email already in use",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Peter\",\r\n    \"email\": \"peter@email.com.br\",\r\n    \"password\": \"12345678\",\r\n    \"gender\": \"M\",\r\n    \"dateBirth\": \"2012-12-05\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "80"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"50-R1pRdoQOlwsz5R98oOfcMzKwMHY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 22:35:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Already exists user with email\",\n    \"error\": \"Conflict\",\n    \"statusCode\": 409\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/user/auth",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"auth"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 - Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"peter213@email.com.br\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/auth",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"auth"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "146"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"92-Bzz9Em8+xZWjsX+o2oa4dyjMOdA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 23:10:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzODI2MjUsImV4cCI6MTcxNTM4NjIyNX0.KFyJnclUx-YWyA05xjEdijNREmeecacDIBAX1mxetgg\"\n}"
+						},
+						{
+							"name": "400 - Body Incorrect",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/user/auth",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"auth"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "220"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"dc-fqZQaN0zjoTxRfwKg9e4o3HYKeM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 23:08:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"email must be an email\",\n        \"email should not be empty\",\n        \"password must be longer than or equal to 8 characters\",\n        \"password must be a string\",\n        \"password should not be empty\"\n    ],\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "401 - Password or email is wrong",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"pastel@email.com.br\",\r\n    \"password\": \"asdasd45454\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/auth",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"auth"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "80"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"50-CaC/dvpIIQpMXvKai5Mh7bS9uPQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 10 May 2024 23:09:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Password or email is wrong\",\n    \"error\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+						}
+					]
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzODg5NDUsImV4cCI6MTcxNTM4OTA2NX0.N4i4GcxnJDuEqbGjRyxB5L9a4u0PrCFji70B2yV4WWk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/user/refreshtoken",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"refreshtoken"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 - Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/user/refreshtoken",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"refreshtoken"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "292"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"124-xAk2bptwcfDxf8IMteTaF4ngzbA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 May 2024 00:56:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzODg5OTgsImV4cCI6MTcxNTM4OTA1OH0.JVktRYOZlGewv3Mi6xtcy3zd3J3V9ytroN90aGzbv08\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTUzODg5OTgsImV4cCI6MTcxNTM4OTExOH0.EkEly04dj8HU6otFAsDDVWJEFXIR5BlCu4GA5E8El2k\"\n}"
+						},
+						{
+							"name": "403 - Refresh Token invalid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/user/refreshtoken",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"refreshtoken"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-MZJWZc+Y+RUbHpnhz2B2Vipii24\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 May 2024 00:57:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Forbidden resource\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTU0NDcxNzEsImV4cCI6MTcxNTQ0Nzc3MX0.kUm2VspqlYpSGpzEKD5tx9oHB3ORcDG4JA2oZfh7XeM",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://catalogo-filme.onrender.com",
+			"type": "string"
+		}
+	]
+}

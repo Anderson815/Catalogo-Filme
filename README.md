@@ -60,10 +60,18 @@ PORT=3000
 BCRYPT_SALT=10
 
 #JWT
-JWT_SECRET_KEY=4b6e18c7-9d9b-4f15-829b-2b128a01d6e4
-JWT_SECRET_KEY_EXPIRES_IN = 600
-JWT_SECRET_REFRESH_KEY=d8b6f7a3-e724-4dc4-a9e0-5c3b2f9e0dc1
-JWT_SECRET_KEY_REFRESH_EXPIRES_IN = 1200 #Deve ser maior que o JWT_SECRET_KEY_EXPIRES_IN
+JWT_SECRET_KEY=4b6e18c7-9d9b-4f15-829b-2b128a01d6e4_example
+JWT_SECRET_KEY_EXPIRES_IN=600
+JWT_SECRET_REFRESH_KEY=d8b6f7a3-e724-4dc4-a9e0-5c3b2f9e0dc1_example
+JWT_SECRET_KEY_REFRESH_EXPIRES_IN=1200 #Deve ser maior que o JWT_SECRET_KEY_EXPIRES_IN
+
+#BD
+BD_HOST=db_example
+BD_PORT=5432,
+BD_USERNAME=root_example
+BD_PASSWORD=pass_example
+BD_DATABASE=movie_db_example
+
 ```
 
 <p>Executar o docker compose<p>
@@ -75,7 +83,8 @@ docker compose up
 <h2 id="Aplicacao">▶️ Aplicação</h2>
 
 Aplicação está hospedado no link: https://catalogo-filme.onrender.com <br>
-Swagger da aplicação no servidor de hospedagem: https://catalogo-filme.onrender.com/api
+Swagger da aplicação no servidor de hospedagem: https://catalogo-filme.onrender.com/api <br>
+Também tem a collection do postman caso prefira utilizar essa ferramenta. A collection se encontra na pasta Collection.
 
 <h2 id="Tecnologias">🛠 Ferramentas e técnicas de desenvolvimento</h2>
 
